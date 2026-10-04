@@ -1,0 +1,92 @@
+[
+    {
+        "Algorithm":  "SHA256",
+        "Hash":  "3E478736BF8B781E1D9FFC5B77463ABB9712C1989B7FB0C39901DE827937EBF2",
+        "Path":  "C:\\Users\\Admin\\Desktop\\GHOST\\Source\\DSP\\GhostBlur.cpp"
+    },
+    {
+        "Algorithm":  "SHA256",
+        "Hash":  "EC60FA73C5FC7D3449EBDCF7ADC8122D67DC111F2851E186789B44267A039B9E",
+        "Path":  "C:\\Users\\Admin\\Desktop\\GHOST\\Source\\DSP\\GhostBlur.h"
+    },
+    {
+        "Algorithm":  "SHA256",
+        "Hash":  "B20A19F107DB18DA29340042F5FFB8042804DB484B25770E9AC1864F6684C51C",
+        "Path":  "C:\\Users\\Admin\\Desktop\\GHOST\\Source\\DSP\\GhostBuffer.cpp"
+    },
+    {
+        "Algorithm":  "SHA256",
+        "Hash":  "7AFE3640431441154CBD71C4876BD99BC343C27964B9AD5E8CC60686AE422F19",
+        "Path":  "C:\\Users\\Admin\\Desktop\\GHOST\\Source\\DSP\\GhostBuffer.h"
+    },
+    {
+        "Algorithm":  "SHA256",
+        "Hash":  "EB111E77B8748C4BC0F24C21801EC783473CDB01844036EA924CB99080D8745D",
+        "Path":  "C:\\Users\\Admin\\Desktop\\GHOST\\Source\\DSP\\GhostEngine.cpp"
+    },
+    {
+        "Algorithm":  "SHA256",
+        "Hash":  "EE233BF304F6C25BA0BF17275A07F8E714D74409633C1BF5312F19744971F310",
+        "Path":  "C:\\Users\\Admin\\Desktop\\GHOST\\Source\\DSP\\GhostEngine.h"
+    },
+    {
+        "Algorithm":  "SHA256",
+        "Hash":  "50F026614B740CB6F257742376BA3509A0ECD3B959FA9A5ADEBB12125BAC56D7",
+        "Path":  "C:\\Users\\Admin\\Desktop\\GHOST\\Source\\DSP\\GhostFeedback.cpp"
+    },
+    {
+        "Algorithm":  "SHA256",
+        "Hash":  "82A53C64B2E2EE7E42F7148DC4655B28B9F5C5F1D98221042225950428B93D7D",
+        "Path":  "C:\\Users\\Admin\\Desktop\\GHOST\\Source\\DSP\\GhostFeedback.h"
+    },
+    {
+        "Algorithm":  "SHA256",
+        "Hash":  "E323E0FFE63837173F053A16B899A62FDDD5C9A67DC88D96B3A02BB6842BD27C",
+        "Path":  "C:\\Users\\Admin\\Desktop\\GHOST\\Source\\DSP\\GhostFreeze.cpp"
+    },
+    {
+        "Algorithm":  "SHA256",
+        "Hash":  "06F83A31D06E1A68A2EA2BB385C8CA116C8E8184095EC90BE09088841012BF98",
+        "Path":  "C:\\Users\\Admin\\Desktop\\GHOST\\Source\\DSP\\GhostFreeze.h"
+    },
+    {
+        "Algorithm":  "SHA256",
+        "Hash":  "F81911C4BEB397FE9F9EA7B1FF5FED7CA1684406AEFC1502FEF3905B94690250",
+        "Path":  "C:\\Users\\Admin\\Desktop\\GHOST\\Source\\DSP\\GhostMacro.cpp"
+    },
+    {
+        "Algorithm":  "SHA256",
+        "Hash":  "A5A448846E6884C2330247E92AEC7FBACB19926E42A5C2BB15908F67B05138D0",
+        "Path":  "C:\\Users\\Admin\\Desktop\\GHOST\\Source\\DSP\\GhostMacro.h"
+    },
+    {
+        "Algorithm":  "SHA256",
+        "Hash":  "F6A62D5AE58B54E08287938D0C1FB938E249CCFF16EDE7E3772EC6E96DCE1EA4",
+        "Path":  "C:\\Users\\Admin\\Desktop\\GHOST\\Source\\DSP\\GhostReverse.cpp"
+    },
+    {
+        "Algorithm":  "SHA256",
+        "Hash":  "5640C24C9AEC4CB3A83800F9BCCCBC652D8AF96BA36D2D049829755B5AE68E98",
+        "Path":  "C:\\Users\\Admin\\Desktop\\GHOST\\Source\\DSP\\GhostReverse.h"
+    },
+    {
+        "Algorithm":  "SHA256",
+        "Hash":  "FA744AF053ED5FF761EE67FC97EDE8AA7F072BE5584CB9D3ABFEF490C8A9D58D",
+        "Path":  "C:\\Users\\Admin\\Desktop\\GHOST\\Source\\DSP\\GhostVoice.cpp"
+    },
+    {
+        "Algorithm":  "SHA256",
+        "Hash":  "F9048FD25D6BFC6BE47ED2BF163E00E4211CD281730C92CB904FD1902968AE9C",
+        "Path":  "C:\\Users\\Admin\\Desktop\\GHOST\\Source\\DSP\\GhostVoice.h"
+    },
+    {
+        "Algorithm":  "SHA256",
+        "Hash":  "2362F3230E394A24D529FD6818D278CF2F8EF8F46581F2692707B30AFBC00C00",
+        "Path":  "C:\\Users\\Admin\\Desktop\\GHOST\\Source\\PluginProcessor.cpp"
+    },
+    {
+        "Algorithm":  "SHA256",
+        "Hash":  "96AAF340BA9AB2E0ACAF1BA6313F2AB97C233E4C6AA477CA39D5FE67D799F296",
+        "Path":  "C:\\Users\\Admin\\Desktop\\GHOST\\Source\\PluginProcessor.h"
+    }
+]

@@ -1,0 +1,16 @@
+PHASMORA 1.0.0 - dependency review notice
+
+Built with JUCE 8.0.12 (https://juce.com/) and its bundled VST3 SDK.
+The actual checkout contains third-party code including font shaping, codecs,
+image handling and VST3 interfaces. Applicable notices and licensing options are
+in the corresponding dependency source distributions, particularly JUCE's
+LICENSE.md and module headers. This summary is not a replacement for those terms.
+
+Owner action before public distribution: confirm the appropriate JUCE license,
+PHASMORA source/distribution license, logo rights, and all required bundled notices.
+No claim of public-distribution license clearance is made for this release.
+
+Selected original dependency license/notice files are included in ThirdPartyLicenses.
+The installed Inno Setup 6.7.3 compiler identifies itself as non-commercial use
+only. The owner must confirm appropriate installer-tool licensing for commercial
+release as well. This does not invent or select a PHASMORA license.

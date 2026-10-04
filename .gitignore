@@ -1,0 +1,9 @@
+/build/
+/.tools/
+/.vs/
+*.user
+
+# Generated release artifacts and local verification logs (retain manifests in Docs).
+/dist/
+/*.log
+/*.log.tmp*

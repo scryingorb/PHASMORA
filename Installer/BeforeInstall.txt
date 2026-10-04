@@ -1,0 +1,11 @@
+PHASMORA 1.0.0
+
+Stereo VST3 audio memory effect for Windows x64.
+Close your DAW before installing or uninstalling.
+
+The complete PHASMORA.vst3 bundle is installed into the standard Common Files\VST3
+location. Only PHASMORA-owned files are installed and removed.
+
+This release is unsigned.
+Licensing and third-party distribution obligations still require owner review
+before public distribution. No new license grant is asserted by this notice.

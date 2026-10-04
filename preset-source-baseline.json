@@ -1,0 +1,22 @@
+{
+  "Source\\DSP\\GhostBlur.cpp": "3e478736bf8b781e1d9ffc5b77463abb9712c1989b7fb0c39901de827937ebf2",
+  "Source\\DSP\\GhostBlur.h": "ec60fa73c5fc7d3449ebdcf7adc8122d67dc111f2851e186789b44267a039b9e",
+  "Source\\DSP\\GhostBuffer.cpp": "b20a19f107db18da29340042f5ffb8042804db484b25770e9ac1864f6684c51c",
+  "Source\\DSP\\GhostBuffer.h": "7afe3640431441154cbd71c4876bd99bc343c27964b9ad5e8cc60686ae422f19",
+  "Source\\DSP\\GhostEngine.cpp": "eb111e77b8748c4bc0f24c21801ec783473cdb01844036ea924cb99080d8745d",
+  "Source\\DSP\\GhostEngine.h": "ee233bf304f6c25ba0bf17275a07f8e714d74409633c1bf5312f19744971f310",
+  "Source\\DSP\\GhostFeedback.cpp": "50f026614b740cb6f257742376ba3509a0ecd3b959fa9a5adebb12125bac56d7",
+  "Source\\DSP\\GhostFeedback.h": "82a53c64b2e2ee7e42f7148dc4655b28b9f5c5f1d98221042225950428b93d7d",
+  "Source\\DSP\\GhostFreeze.cpp": "e323e0ffe63837173f053a16b899a62fddd5c9a67dc88d96b3a02bb6842bd27c",
+  "Source\\DSP\\GhostFreeze.h": "06f83a31d06e1a68a2ea2bb385c8ca116c8e8184095ec90be09088841012bf98",
+  "Source\\DSP\\GhostMacro.cpp": "f81911c4beb397fe9f9ea7b1ff5fed7ca1684406aefc1502fef3905b94690250",
+  "Source\\DSP\\GhostMacro.h": "a5a448846e6884c2330247e92aec7fbacb19926e42a5c2bb15908f67b05138d0",
+  "Source\\DSP\\GhostReverse.cpp": "f6a62d5ae58b54e08287938d0c1fb938e249ccff16ede7e3772ec6e96dce1ea4",
+  "Source\\DSP\\GhostReverse.h": "5640c24c9aec4cb3a83800f9bcccbc652d8af96ba36d2d049829755b5ae68e98",
+  "Source\\DSP\\GhostVoice.cpp": "fa744af053ed5ff761ee67fc97ede8aa7f072be5584cb9d3abfef490c8a9d58d",
+  "Source\\DSP\\GhostVoice.h": "f9048fd25d6bfc6be47ed2bf163e00e4211cd281730c92cb904fd1902968ae9c",
+  "Source\\UI\\GhostVisualizer.cpp": "822dc60dbe418966110fadc66a831bdeba10f29077ac1ff253e21491f2147edf",
+  "Source\\UI\\GhostVisualizer.h": "a67f6161f4ec3a05ff1359a7bb0b13a6f9cf21197e65351b14862dfc56a956c1",
+  "Source\\PluginProcessor.cpp": "be1de9ee4fe97c72f07d0872b0b73c3b85a622512c389e96997917cb258c5d15",
+  "Source\\PluginProcessor.h": "c8a59f677f038f52a3c3f47c0ea31c43951b17f0303f9853fd626f491c94e420"
+}
