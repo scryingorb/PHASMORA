@@ -7,5 +7,5 @@ The complete PHASMORA.vst3 bundle is installed into the standard Common Files\VS
 location. Only PHASMORA-owned files are installed and removed.
 
 This release is unsigned.
-Licensing and third-party distribution obligations still require owner review
-before public distribution. No new license grant is asserted by this notice.
+PHASMORA is proprietary freeware under the accompanying LICENSE.txt.
+Third-party components retain their respective licenses and notices.

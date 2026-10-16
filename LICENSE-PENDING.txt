@@ -1,6 +1,0 @@
-PHASMORA 1.0.0 - LICENSE SELECTION PENDING
-
-No project license was present when this release was prepared.
-This file is a status notice, not a license or grant of distribution rights.
-The owner must choose the PHASMORA license and confirm third-party licensing
-requirements before public distribution. See THIRD-PARTY-NOTICES.txt.

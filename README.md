@@ -1,5 +1,9 @@
 # PHASMORA
 
+[Download PHASMORA 1.0.0 for Windows x64](https://github.com/scryingorb/PHASMORA/releases/tag/v1.0.0)
+
+Proprietary freeware. See [LICENSE.txt](LICENSE.txt).
+
 **PHASMORA 1.0.0 | Windows x64 VST3**
 
 PHASMORA is a supernatural audio-memory effect that reaches into recent sound and
@@ -116,7 +120,7 @@ ctest --test-dir build -C Release --parallel 2 --output-on-failure
 `build.ps1 -Configuration Release` is also available for the plugin build.
 The resulting bundle is `build/GHOST_artefacts/Release/VST3/PHASMORA.vst3`.
 With Inno Setup 6 installed, run `powershell -NoProfile -ExecutionPolicy Bypass -File ./package-release.ps1` to build the installer,
-copy the distribution, create `dist/PHASMORA-1.0.0-Windows.zip`, and write
+copy the distribution, create `dist/PHASMORA-1.0.0-Windows-x64.zip`, and write
 `dist/SHA256SUMS.txt`. The script accepts `-InnoCompiler` for a nondefault location.
 
 ## Architecture
@@ -136,7 +140,8 @@ Release-specific checks cover metadata, tail reporting, callback allocations,
 processing-time measurements, two-minute integrated stress at every sample rate,
 and long maximum-tail decay. Screenshots exercise 1x and 2x rendering.
 
-Final source-repository audit results are in `Docs/PHASMORA-1.0.0-RenameVerification.md`; earlier
+Current release verification is in `Docs/PHASMORA-1.0.0-PublicationVerification.md`.
+Previous rename results are in `Docs/PHASMORA-1.0.0-RenameVerification.md`; earlier
 stage measurements are archived in `Docs/DevelopmentHistory.md`. Those internal
 engineering documents and logs are deliberately excluded from the distribution.
 
@@ -156,8 +161,8 @@ This confirmation does not imply testing of every preset or host render option.
 - Tail reporting is a practical decay estimate, not proof of exact digital silence.
   FREEZE can sustain indefinitely. Hosts can cache tail metadata.
 - The installer/binary are unsigned. A real clean-machine test remains outstanding.
-- Project licensing and JUCE/dependency licensing must be confirmed by the owner
-  before public distribution. `LICENSE-PENDING.txt` is a status notice, not a license.
+- PHASMORA is proprietary freeware under `LICENSE.txt`. Third-party components
+  retain their own terms; dependency licensing has not been independently verified.
 
 ## Version
 

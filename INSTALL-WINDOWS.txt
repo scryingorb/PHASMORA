@@ -1,0 +1,26 @@
+PHASMORA 1.0.0 - Windows x64 VST3
+
+Requires Windows 10 or later and a 64-bit VST3-compatible audio host.
+Close your DAW before installing or upgrading. Back up your projects.
+
+Recommended: run PHASMORA-1.0.0-Windows-Setup.exe from the official release.
+The installer is unsigned; Windows may show an unknown-publisher warning.
+
+Manual installation:
+1. Extract the ZIP completely.
+2. Copy the ENTIRE PHASMORA.vst3 directory, including Contents and all files,
+   to C:\Program Files\Common Files\VST3\ (administrator permission needed).
+3. Rescan VST3 plugins in your DAW and open PHASMORA as an audio effect.
+Do not copy just the inner binary. Manual uninstall: remove that bundle only.
+
+Previous GHOST users: use the installer for verified migration. Do not leave
+GHOST.vst3 and PHASMORA.vst3 together in scan paths: they share plugin IDs.
+The installer refuses unknown/modified GHOST bundles and unexpected files.
+Manual ZIP installation does NOT run migration or remove an old GHOST bundle.
+
+Frozen audio is not saved in sessions; recapture it after reopening. Old FL
+Studio project substitution, clean-machine admin install, physical HiDPI and
+Smart Disable have not been manually verified for this release.
+
+Official downloads: https://github.com/scryingorb/PHASMORA/releases/tag/v1.0.0
+See LICENSE.txt and THIRD-PARTY-NOTICES.txt plus ThirdPartyLicenses/.

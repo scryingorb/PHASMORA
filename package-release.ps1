@@ -11,16 +11,20 @@ $bundle = Join-Path $projectRoot 'build\GHOST_artefacts\Release\VST3\PHASMORA.vs
 if (!(Test-Path -LiteralPath (Join-Path $bundle 'Contents\x86_64-win\PHASMORA.vst3'))) { throw 'Build Release VST3 first' }
 $binaryVersion = (Get-Item -LiteralPath (Join-Path $bundle 'Contents\x86_64-win\PHASMORA.vst3')).VersionInfo.ProductVersion
 if ($binaryVersion -ne $version) { throw "Stale binary version $binaryVersion" }
+# Recreate only the exact generated package, preventing stale files in releases.
+$expectedRoot=[IO.Path]::GetFullPath((Join-Path $projectRoot "dist\$packageName"))
+if ([IO.Path]::GetFullPath($packageRoot) -ne $expectedRoot) { throw 'Unsafe package path' }
+if (Test-Path -LiteralPath $packageRoot) { Remove-Item -LiteralPath $packageRoot -Recurse -Force }
 New-Item -ItemType Directory -Path $packageRoot -Force | Out-Null
 Copy-Item -LiteralPath $bundle -Destination $packageRoot -Recurse -Force
-foreach ($name in @('README.md','LICENSE-PENDING.txt','THIRD-PARTY-NOTICES.txt')) {
+foreach ($name in @('README.md','LICENSE.txt','INSTALL-WINDOWS.txt','THIRD-PARTY-NOTICES.txt')) {
     Copy-Item -LiteralPath (Join-Path $projectRoot $name) -Destination $packageRoot -Force
 }
 Copy-Item -LiteralPath (Join-Path $projectRoot 'ThirdPartyLicenses') -Destination $packageRoot -Recurse -Force
 & $InnoCompiler "/DProductVersion=$version" "/DProjectRoot=$projectRoot" "/DOutputRoot=$packageRoot" (Join-Path $projectRoot 'Installer\PHASMORA.iss')
 if ($LASTEXITCODE -ne 0) { throw 'Installer compilation failed' }
 $installer = Join-Path $packageRoot "$packageName-Setup.exe"
-$zipPath = Join-Path $distRoot "$packageName.zip"
+$zipPath = Join-Path $distRoot "$packageName-x64.zip"
 # Internal checksums cover every package file except the checksum file itself.
 # ZIP hash stays outside the ZIP, avoiding a self-referential checksum cycle.
 $packageHashes = Get-ChildItem -LiteralPath $packageRoot -File -Recurse |
@@ -31,16 +35,12 @@ $packageHashes = Get-ChildItem -LiteralPath $packageRoot -File -Recurse |
         "$hash  $relative"
     }
 $packageHashes | Set-Content -LiteralPath (Join-Path $packageRoot 'SHA256SUMS.txt') -Encoding ascii
-Compress-Archive -LiteralPath $packageRoot -DestinationPath $zipPath -Force
+# Manual archive intentionally excludes the installer and its checksum manifest.
+$manualFiles=@('PHASMORA.vst3','README.md','INSTALL-WINDOWS.txt','LICENSE.txt','THIRD-PARTY-NOTICES.txt','ThirdPartyLicenses') | ForEach-Object { Join-Path $packageRoot $_ }
+Compress-Archive -LiteralPath $manualFiles -DestinationPath $zipPath -Force
 $hashes = foreach ($path in @($installer,$zipPath)) {
     $hash = (Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant()
-    $relative = $path.Substring($distRoot.Length + 1).Replace('\','/')
-    "$hash  $relative"
-}
-Get-ChildItem -LiteralPath (Join-Path $packageRoot 'PHASMORA.vst3') -File -Recurse | ForEach-Object {
-    $hash = (Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash.ToLowerInvariant()
-    $relative = $_.FullName.Substring($distRoot.Length + 1).Replace('\','/')
-    $hashes += "$hash  $relative"
+    "$hash  $([IO.Path]::GetFileName($path))"
 }
 $hashes | Set-Content -LiteralPath (Join-Path $distRoot 'SHA256SUMS.txt') -Encoding ascii
 Write-Output "Packaged $packageRoot"

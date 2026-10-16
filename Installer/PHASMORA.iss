@@ -36,10 +36,14 @@ CloseApplications=no
 RestartApplications=no
 SetupLogging=yes
 InfoBeforeFile={#ProjectRoot}\Installer\BeforeInstall.txt
+[InstallDelete]
+; Remove the obsolete product notice when upgrading a pre-publication build.
+Type: files; Name: "{app}\Documentation\LICENSE-PENDING.txt"
 [Files]
+Source: "{#ProjectRoot}\INSTALL-WINDOWS.txt"; DestDir: "{app}\Documentation"; Flags: ignoreversion
 Source: "{#ProjectRoot}\build\GHOST_artefacts\Release\VST3\PHASMORA.vst3\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "{#ProjectRoot}\README.md"; DestDir: "{app}\Documentation"; Flags: ignoreversion
-Source: "{#ProjectRoot}\LICENSE-PENDING.txt"; DestDir: "{app}\Documentation"; Flags: ignoreversion
+Source: "{#ProjectRoot}\LICENSE.txt"; DestDir: "{app}\Documentation"; Flags: ignoreversion
 Source: "{#ProjectRoot}\THIRD-PARTY-NOTICES.txt"; DestDir: "{app}\Documentation"; Flags: ignoreversion
 Source: "{#ProjectRoot}\ThirdPartyLicenses\*"; DestDir: "{app}\Documentation\ThirdPartyLicenses"; Flags: ignoreversion recursesubdirs createallsubdirs
 [Code]

@@ -1,4 +1,4 @@
-param()
+param([string]$PreviousInstaller = "")
 $ErrorActionPreference='Stop'
 $projectRoot=Split-Path -Parent $PSScriptRoot
 $testRoot=Join-Path $projectRoot 'build\Installer-Test'
@@ -13,6 +13,13 @@ $sibling=Join-Path $testRoot 'UnrelatedPlugin.keep'
 Set-Content -LiteralPath $sibling -Value 'preserve unrelated content'
 $installer=Join-Path $projectRoot 'dist\PHASMORA-1.0.0-Windows\PHASMORA-1.0.0-Windows-Setup.exe'
 $source=Join-Path $projectRoot 'build\GHOST_artefacts\Release\VST3\PHASMORA.vst3'
+if ($PreviousInstaller) {
+    $arguments=@('/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART','/CURRENTUSER',('/DIR="'+$destination+'"'))
+    $process=Start-Process -FilePath $PreviousInstaller -ArgumentList $arguments -WindowStyle Hidden -Wait -PassThru
+    if ($process.ExitCode -ne 0) { throw 'Previous PHASMORA install failed' }
+    if (!(Test-Path -LiteralPath (Join-Path $destination 'Documentation\LICENSE-PENDING.txt'))) { throw 'Previous build fixture missing obsolete notice' }
+    Write-Output 'Previous PHASMORA build installed for upgrade verification.'
+}
 for ($pass=1;$pass -le 2;$pass++) {
     $installLog=Join-Path $testRoot "install-$pass.log"
     $arguments=@('/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART','/CURRENTUSER',('/DIR="'+$destination+'"'),('/LOG="'+$installLog+'"'))
@@ -24,6 +31,12 @@ for ($pass=1;$pass -le 2;$pass++) {
         if (!(Test-Path -LiteralPath $installed)) { throw "Missing bundle file $relative" }
         if ((Get-FileHash -LiteralPath $file.FullName).Hash -ne (Get-FileHash -LiteralPath $installed).Hash) { throw "Bundle mismatch $relative" }
     }
+    foreach ($name in @('LICENSE.txt','INSTALL-WINDOWS.txt','README.md','THIRD-PARTY-NOTICES.txt')) {
+        $original=Join-Path $projectRoot $name
+        $installedNotice=Join-Path $destination ("Documentation\"+$name)
+        if ((Get-FileHash -LiteralPath $original).Hash -ne (Get-FileHash -LiteralPath $installedNotice).Hash) { throw "Installed documentation mismatch: $name" }
+    }
+    if (Test-Path -LiteralPath (Join-Path $destination 'Documentation\LICENSE-PENDING.txt')) { throw 'Obsolete pending-license notice remains after upgrade' }
     Write-Output "Controlled installation pass ${pass}: complete bundle hashes match"
 }
 $uninstaller=Join-Path $destination 'Uninstall\unins000.exe'

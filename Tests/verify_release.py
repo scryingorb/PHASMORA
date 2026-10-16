@@ -34,18 +34,23 @@ assert re.findall(r'addPercent\("(\w+)"',processor)==['ghost','memory','decay','
 assert 'ParameterID { "reverse", 1 }' in processor and 'ParameterID { "freeze", 1 }' in processor
 assert '"GHOST_STATE"' in processor
 package=root/'dist/PHASMORA-1.0.0-Windows'
-assert {p.name for p in package.iterdir()}=={'PHASMORA.vst3','ThirdPartyLicenses','PHASMORA-1.0.0-Windows-Setup.exe','README.md','LICENSE-PENDING.txt','THIRD-PARTY-NOTICES.txt','SHA256SUMS.txt'}
+assert {p.name for p in package.iterdir()}=={'PHASMORA.vst3','ThirdPartyLicenses','PHASMORA-1.0.0-Windows-Setup.exe','README.md','LICENSE.txt','INSTALL-WINDOWS.txt','THIRD-PARTY-NOTICES.txt','SHA256SUMS.txt'}
 for relative in expected:assert (package/'PHASMORA.vst3'/relative).read_bytes()==(bundle/relative).read_bytes()
-for name in ['README.md','LICENSE-PENDING.txt','THIRD-PARTY-NOTICES.txt']:assert (package/name).read_bytes()==(root/name).read_bytes()
-with zipfile.ZipFile(root/'dist/PHASMORA-1.0.0-Windows.zip') as archive:
+for name in ['README.md','LICENSE.txt','INSTALL-WINDOWS.txt','THIRD-PARTY-NOTICES.txt']:assert (package/name).read_bytes()==(root/name).read_bytes()
+with zipfile.ZipFile(root/'dist/PHASMORA-1.0.0-Windows-x64.zip') as archive:
+    archive_files={i.filename.replace('\\','/') for i in archive.infolist() if not i.is_dir()}
+    expected_files={p.relative_to(package).as_posix() for p in package.rglob('*') if p.is_file() and p.name not in {'SHA256SUMS.txt','PHASMORA-1.0.0-Windows-Setup.exe'}}
+    assert archive_files==expected_files, 'Incomplete manual-install ZIP'
     for item in archive.infolist():
         name=item.filename.replace('\\','/')
-        assert name.startswith('PHASMORA-1.0.0-Windows/')
+        assert name.split('/')[0] in {'PHASMORA.vst3','README.md','INSTALL-WINDOWS.txt','LICENSE.txt','THIRD-PARTY-NOTICES.txt','ThirdPartyLicenses'}
         assert not any(part.lower() in ['build','source','tests','.tools','.codex'] for part in name.split('/'))
         assert not name.endswith(('.obj','.pdb','.log','.png'))
-        if not item.is_dir():assert archive.read(item)==(root/'dist'/name).read_bytes()
+        if not item.is_dir():assert archive.read(item)==(package/name).read_bytes()
 for directory in [root/'dist',package]:
     for line in (directory/'SHA256SUMS.txt').read_text().splitlines():
         digest,name=line.split('  ',1)
-        assert sha(directory/name)==digest
+        target=directory/name
+        if directory==root/'dist' and name.endswith('-Setup.exe'):target=package/name
+        assert sha(target)==digest
 print('PASS: PHASMORA branding/version; legacy CIDs/IDs/state root; all DSP/preset/visualizer sources unchanged; only intended UI/metadata text changes; complete bundle, ZIP and SHA-256.')

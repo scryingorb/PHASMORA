@@ -1,0 +1,79 @@
+﻿PHASMORA — PROPRIETARY FREEWARE LICENSE
+Version 1.0
+
+Copyright © 2026 William Stinson. All rights reserved.
+
+1. SCOPE
+
+This license applies to the original PHASMORA software, source code, artwork, factory presets, and documentation owned by William Stinson (“Licensor”). Separately licensed third-party components remain subject to their respective licenses.
+
+PHASMORA is provided free of charge. It is proprietary software and is not licensed as open-source software.
+
+2. PERMITTED USE
+
+Subject to these terms, you receive a nonexclusive, worldwide, royalty-free license to download, install, and use official PHASMORA builds on computers you own or control, for personal, educational, and commercial audio production.
+
+You may make backup copies for your own use and create, modify, and share your own user presets, provided they do not contain copied PHASMORA code or artwork.
+
+3. YOUR MUSIC AND AUDIO
+
+You retain all rights you otherwise hold in music, recordings, sound effects, and other audio you create or process using PHASMORA.
+
+You may release, sell, stream, license, and otherwise distribute that audio without paying royalties to William Stinson or providing attribution. This license does not grant rights to third-party material used in your productions.
+
+4. RESTRICTIONS
+
+Except with prior written permission from William Stinson, you may not:
+
+(a) copy or reuse PHASMORA’s original source code, in whole or in part, in another product or project;
+
+(b) modify, adapt, translate, or create derivative versions of the software;
+
+(c) redistribute, mirror, sublicense, sell, rent, lease, or bundle the software, installer, original source code, artwork, or factory preset collection;
+
+(d) remove or alter copyright, license, or ownership notices; or
+
+(e) represent PHASMORA or its original components as your own work, or imply endorsement by William Stinson.
+
+You may share links to the official PHASMORA repository and release downloads.
+
+These restrictions do not apply where applicable law grants rights that cannot be excluded, where a third-party license expressly permits the activity, or where rights have separately been granted under applicable hosting-platform terms.
+
+5. SOURCE CODE AND OWNERSHIP
+
+Public visibility of PHASMORA’s source code does not grant a general license to reuse, modify, or redistribute it. Any rights expressly granted through the hosting platform’s terms remain unaffected.
+
+The software is licensed, not sold. William Stinson retains rights in the original PHASMORA materials. No trademark or branding rights are granted beyond identifying the software accurately.
+
+6. THIRD-PARTY COMPONENTS
+
+PHASMORA may include third-party software and materials. Their copyright notices and applicable licenses are supplied in the accompanying third-party notices and license files.
+
+Those licenses govern their respective components. Nothing in this license restricts rights granted by those licenses or claims ownership of third-party materials.
+
+7. NO WARRANTY
+
+To the maximum extent permitted by applicable law, PHASMORA is provided “as is” and “as available,” without warranties of any kind, express or implied, including warranties of merchantability, fitness for a particular purpose, and noninfringement.
+
+The Licensor does not guarantee uninterrupted operation, compatibility with every system or host, or freedom from defects. You are responsible for maintaining backups of your work.
+
+8. LIMITATION OF LIABILITY
+
+To the maximum extent permitted by applicable law, William Stinson will not be liable for damages arising from use of, or inability to use, PHASMORA, including loss of data, lost profits, business interruption, or indirect, incidental, special, or consequential damages.
+
+Nothing in this license excludes or limits liability or consumer rights that cannot lawfully be excluded or limited.
+
+9. TERMINATION
+
+If you materially breach this license and fail to remedy the breach within 30 days after receiving written notice, your permissions under this license terminate.
+
+Following termination, you must stop using and delete copies of PHASMORA covered by this license, except where retention is required by law. Termination does not affect your rights in audio already created using PHASMORA or rights independently granted by third-party licenses.
+
+10. GENERAL
+
+No support, maintenance, or future updates are promised under this license. A later license does not automatically replace the terms supplied with a version you already received.
+
+If a provision is unenforceable, the remaining provisions continue to apply to the extent permitted by law.
+
+For permissions beyond this license, contact William Stinson through the official project:
+https://github.com/scryingorb/PHASMORA

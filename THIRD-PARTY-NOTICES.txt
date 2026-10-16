@@ -6,11 +6,11 @@ image handling and VST3 interfaces. Applicable notices and licensing options are
 in the corresponding dependency source distributions, particularly JUCE's
 LICENSE.md and module headers. This summary is not a replacement for those terms.
 
-Owner action before public distribution: confirm the appropriate JUCE license,
-PHASMORA source/distribution license, logo rights, and all required bundled notices.
+PHASMORA original materials are licensed under the accompanying LICENSE.txt.
+JUCE and other third-party components retain their respective terms.
 No claim of public-distribution license clearance is made for this release.
 
 Selected original dependency license/notice files are included in ThirdPartyLicenses.
 The installed Inno Setup 6.7.3 compiler identifies itself as non-commercial use
 only. The owner must confirm appropriate installer-tool licensing for commercial
-release as well. This does not invent or select a PHASMORA license.
+release as well. See LICENSE.txt for the owner-selected PHASMORA license.
