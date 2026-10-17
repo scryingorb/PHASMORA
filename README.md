@@ -9,6 +9,15 @@ Proprietary freeware. See [LICENSE.txt](LICENSE.txt).
 PHASMORA is a supernatural audio-memory effect that reaches into recent sound and
 transforms it into drifting, blurred, reversed, and frozen spectral textures.
 
+## UI Preview
+
+**Source-generated UI preview — not an actual application screenshot.**
+Reconstructed from the UI source and embedded logo at 3× resolution, showing
+default controls and an idle visualizer. The application was not launched.
+Font rendering and antialiasing may differ from the native interface.
+
+![PHASMORA source-generated UI preview](docs/screenshots/main-interface.png)
+
 ## What PHASMORA Does
 
 A shared ten-second stereo memory feeds four independently positioned voices.
