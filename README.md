@@ -17,6 +17,15 @@ clean guitar, keys or percussion, then adjust PHASMORA and MIX to taste.
 - Custom 820 x 540 interface, original embedded logo and animated ectoplasm
 - Ten factory presets, host automation and saved parameter state
 
+## UI Preview
+
+**Source-generated UI preview — not an actual application screenshot.**
+Reconstructed from the UI source and embedded logo at 3× resolution, showing
+default controls and an idle visualizer. The application was not launched.
+Font rendering and antialiasing may differ from the native interface.
+
+![PHASMORA source-generated UI preview](docs/screenshots/main-interface.png)
+
 ## Technologies
 
 C++17, JUCE 8.0.12, VST3, CMake, MSVC, and Inno Setup.
