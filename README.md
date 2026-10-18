@@ -1,24 +1,8 @@
 # PHASMORA
 
-[Download PHASMORA 1.0.0 for Windows x64](https://github.com/scryingorb/PHASMORA/releases/tag/v1.0.0)
+Windows VST3 audio-memory effect with four ghost voices, reverse playback, freeze, and diffusion, built with JUCE.
 
-Proprietary freeware. See [LICENSE.txt](LICENSE.txt).
-
-**PHASMORA 1.0.0 | Windows x64 VST3**
-
-PHASMORA is a supernatural audio-memory effect that reaches into recent sound and
-transforms it into drifting, blurred, reversed, and frozen spectral textures.
-
-## UI Preview
-
-**Source-generated UI preview — not an actual application screenshot.**
-Reconstructed from the UI source and embedded logo at 3× resolution, showing
-default controls and an idle visualizer. The application was not launched.
-Font rendering and antialiasing may differ from the native interface.
-
-![PHASMORA source-generated UI preview](docs/screenshots/main-interface.png)
-
-## What PHASMORA Does
+## Overview
 
 A shared ten-second stereo memory feeds four independently positioned voices.
 The original dry signal stays separate from the ghost processing. Start with vocals,
@@ -33,7 +17,66 @@ clean guitar, keys or percussion, then adjust PHASMORA and MIX to taste.
 - Custom 820 x 540 interface, original embedded logo and animated ectoplasm
 - Ten factory presets, host automation and saved parameter state
 
-## Controls
+## Technologies
+
+C++17, JUCE 8.0.12, VST3, CMake, MSVC, and Inno Setup.
+
+## Getting Started
+
+Download the [Windows x64 version 1.0.0 release](https://github.com/scryingorb/PHASMORA/releases/tag/v1.0.0). Close your DAW and run `PHASMORA-1.0.0-Windows-Setup.exe`. Accept administrator elevation.
+The installer copies the complete bundle to:
+
+```text
+C:\Program Files\Common Files\VST3\PHASMORA.vst3
+```
+
+Alternatively, extract `PHASMORA-1.0.0-Windows-x64.zip` and copy the entire supplied `PHASMORA.vst3` directory there manually.
+Do not copy only its internal binary. The installer supports reinstall/upgrade and
+uninstall through Windows Installed apps; it removes only its installed PHASMORA files.
+Do not move the bundle before using its uninstaller. Windows 10/11 x64 is the target;
+a true clean-machine Windows validation remains outstanding. The C++ runtime is
+statically linked; no separate VC runtime installation is required by this binary.
+
+### FL Studio
+
+1. Open Options > Manage plugins, then Find installed plugins; verify the standard
+   VST3 directory is scanned. Locate PHASMORA as an **effect**, not an instrument.
+2. Insert it on a stereo mixer track, play audio, and try Haunted Vocal.
+3. Disable the wrapper's Smart Disable for long/frozen textures if live processing
+   is suspended unexpectedly. Smart Disable is a host behavior, not a PHASMORA gate.
+4. For normal tails, use the export tail/remainder options and audition the result.
+   For indefinite FREEZE, set an explicit render endpoint or automate FREEZE off
+   before the end. Do not expect an infinite texture to finish automatically.
+5. Save/reopen after editing a preset to confirm values restore. Frozen audio itself
+   is not saved: feed new material and toggle FREEZE off/on to recapture.
+
+The finite tail estimate is 30 seconds at startup, 12 seconds at zero DECAY, and
+up to 686 seconds at maximum regeneration. FREEZE reports VST3's infinite-tail
+sentinel through JUCE. Reporting never truncates audio. Hosts may cache the value;
+FL Studio's exact caching/render behavior has not been manually validated.
+
+Host reference: [FL Studio wrapper](https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/plugins/wrapper.htm)
+and [export settings](https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/fformats_save_export.htm).
+
+### Build or run from source
+
+Requirements: Windows x64, Visual Studio 2019 or later with C++ tools and a Windows
+SDK, CMake 3.22+, and JUCE 8.0.12. CMake fetches JUCE unless `GHOST_JUCE_PATH` points
+to a local checkout. First-time dependency fetching requires network access.
+
+```powershell
+cmake -S . -B build -A x64 -DGHOST_BUILD_TESTS=ON
+cmake --build build --config Release --target GHOST_VST3 GHOST_DSPTests GHOST_ProcessorTests GHOST_UITests GHOST_ReleaseTests GHOST_BrandingTests --parallel 2
+ctest --test-dir build -C Release --parallel 2 --output-on-failure
+```
+
+`build.ps1 -Configuration Release` is also available for the plugin build.
+The resulting bundle is `build/GHOST_artefacts/Release/VST3/PHASMORA.vst3`.
+With Inno Setup 6 installed, run `powershell -NoProfile -ExecutionPolicy Bypass -File ./package-release.ps1` to build the installer,
+copy the distribution, create `dist/PHASMORA-1.0.0-Windows-x64.zip`, and write
+`dist/SHA256SUMS.txt`. The script accepts `-InnoCompiler` for a nondefault location.
+
+## Usage
 
 | ID | Display name | Type | Range | Default | Behavior / automation |
 | --- | --- | --- | --- | --- | --- |
@@ -76,61 +119,6 @@ selects Possessed. Project state saves actual settings, including manual edits.
 Every factory preset turns FREEZE off. **Frozen Choir contains no captured audio**:
 feed suitable material into PHASMORA, then engage FREEZE. Selecting a preset preserves
 live history and uses the existing parameter transitions.
-
-## Installation
-
-Close your DAW and run `PHASMORA-1.0.0-Windows-Setup.exe`. Accept administrator elevation.
-The installer copies the complete bundle to:
-
-```text
-C:\Program Files\Common Files\VST3\PHASMORA.vst3
-```
-
-Alternatively, copy the entire supplied `PHASMORA.vst3` directory there manually.
-Do not copy only its internal binary. The installer supports reinstall/upgrade and
-uninstall through Windows Installed apps; it removes only its installed PHASMORA files.
-Do not move the bundle before using its uninstaller. Windows 10/11 x64 is the target;
-a true clean-machine Windows validation remains outstanding. The C++ runtime is
-statically linked; no separate VC runtime installation is required by this binary.
-
-### FL Studio
-
-1. Open Options > Manage plugins, then Find installed plugins; verify the standard
-   VST3 directory is scanned. Locate PHASMORA as an **effect**, not an instrument.
-2. Insert it on a stereo mixer track, play audio, and try Haunted Vocal.
-3. Disable the wrapper's Smart Disable for long/frozen textures if live processing
-   is suspended unexpectedly. Smart Disable is a host behavior, not a PHASMORA gate.
-4. For normal tails, use the export tail/remainder options and audition the result.
-   For indefinite FREEZE, set an explicit render endpoint or automate FREEZE off
-   before the end. Do not expect an infinite texture to finish automatically.
-5. Save/reopen after editing a preset to confirm values restore. Frozen audio itself
-   is not saved: feed new material and toggle FREEZE off/on to recapture.
-
-The finite tail estimate is 30 seconds at startup, 12 seconds at zero DECAY, and
-up to 686 seconds at maximum regeneration. FREEZE reports VST3's infinite-tail
-sentinel through JUCE. Reporting never truncates audio. Hosts may cache the value;
-FL Studio's exact caching/render behavior has not been manually validated.
-
-Host reference: [FL Studio wrapper](https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/plugins/wrapper.htm)
-and [export settings](https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/fformats_save_export.htm).
-
-## Build From Source
-
-Requirements: Windows x64, Visual Studio 2019 or later with C++ tools and a Windows
-SDK, CMake 3.22+, and JUCE 8.0.12. CMake fetches JUCE unless `GHOST_JUCE_PATH` points
-to a local checkout. First-time dependency fetching requires network access.
-
-```powershell
-cmake -S . -B build -A x64 -DGHOST_BUILD_TESTS=ON
-cmake --build build --config Release --target PHASMORA_VST3 GHOST_DSPTests GHOST_ProcessorTests GHOST_UITests GHOST_ReleaseTests GHOST_BrandingTests --parallel 2
-ctest --test-dir build -C Release --parallel 2 --output-on-failure
-```
-
-`build.ps1 -Configuration Release` is also available for the plugin build.
-The resulting bundle is `build/GHOST_artefacts/Release/VST3/PHASMORA.vst3`.
-With Inno Setup 6 installed, run `powershell -NoProfile -ExecutionPolicy Bypass -File ./package-release.ps1` to build the installer,
-copy the distribution, create `dist/PHASMORA-1.0.0-Windows-x64.zip`, and write
-`dist/SHA256SUMS.txt`. The script accepts `-InnoCompiler` for a nondefault location.
 
 ## Architecture
 
@@ -177,7 +165,6 @@ This confirmation does not imply testing of every preset or host render option.
 
 PHASMORA **1.0.0**.
 
-
 ## Compatibility with the previous product name
 
 Public branding is PHASMORA 1.0.0. Internal GhostEngine/GhostVoice/GhostBuffer and
@@ -197,3 +184,11 @@ both bundles in VST3 scan paths: they intentionally share the same VST3 identity
 Rescan in FL Studio after migration; cached display names may require refreshing.
 Legacy state and exact audio regression are automated; full FL Studio project
 substitution across the filename change has not been manually verified.
+
+## Project Status
+
+Released: version 1.0.0 for Windows x64. The limitations and testing sections distinguish automated evidence from pending host and listening checks.
+
+## License
+
+Proprietary freeware; see [LICENSE.txt](LICENSE.txt).
